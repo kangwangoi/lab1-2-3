@@ -3,84 +3,28 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Custom Scroll</title>
-<style>
-    /* Styling for the scrollable area */
-    .scrollable-area {
-        width: 300px;
-        height: 200px;
-        overflow-y: scroll;
-        border: 1px solid #ccc;
-    }
-
-    /* Styling for the scrollable content */
-    .scrollable-content {
-        padding: 10px;
-    }
-</style>
+<title>Scroll Buttons</title>
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
-<div class="scrollable-area" id="scrollableArea">
-    <div class="scrollable-content" id="scrollableContent">
-        <!-- Your content goes here -->
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi.</p>
-        <!-- Add more content here -->
-    </div>
+<div id="scroll-buttons">
+    <button id="scroll-up">↑</button>
+    <button id="scroll-down">↓</button>
 </div>
-
-<script>
-    // Smooth scroll function
-    function smoothScrollTo(element, target, duration) {
-        target = Math.round(target);
-        duration = Math.round(duration);
-        if (duration < 0) {
-            return Promise.reject("bad duration");
-        }
-        if (duration === 0) {
-            element.scrollTop = target;
-            return Promise.resolve();
-        }
-
-        let start_time = performance.now();
-        let end_time = start_time + duration;
-
-        let start_top = element.scrollTop;
-        let distance = target - start_top;
-
-        // based on easing equation for animation
-        function ease(t) {
-            return t<0.5 ? 2*t*t : -1+(4-2*t)*t;
-        }
-
-        return new Promise(function(resolve, reject) {
-            function scroll_frame(time) {
-                if (element.scrollTop !== target) {
-                    let timeFraction = (time - start_time) / duration;
-                    if (timeFraction > 1) timeFraction = 1;
-
-                    let newTop = start_top + distance * ease(timeFraction);
-                    element.scrollTop = newTop;
-
-                    requestAnimationFrame(scroll_frame);
-                } else {
-                    resolve();
-                }
-            }
-            // Start animation loop
-            requestAnimationFrame(scroll_frame);
-        });
-    }
-
-    // Smooth scroll to the top of the scrollable area
-    function scrollToTop() {
-        let scrollableArea = document.getElementById('scrollableArea');
-        smoothScrollTo(scrollableArea, 0, 500);
-    }
-
-    // Example usage: scroll to top when the button is clicked
-    document.getElementById('scrollToTopButton').addEventListener('click', scrollToTop);
-</script>
-
+<div class="content">
+    <!-- Your content here -->
+    <p>aiwubdkajsdbas</p>
+    <p>aiwubdkajsdbas</p>
+    <p>aiwubdkajsdbas</p>
+    <p>aiwubdkajsdbas</p>
+    <p>aiwubdkajsdbas</p>
+    <p>aiwubdkajsdbas</p>
+    <p>aiwubdkajsdbas</p>
+    <p>aiwubdkajsdbas</p>
+    <p>aiwubdkajsdbas</p>
+    <p>aiwubdkajsdbas</p>
+    <p>aiwubdkajsdbas</p>
+</div>
+<script src="script.js"></script>
 </body>
 </html>

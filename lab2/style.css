@@ -1,0 +1,27 @@
+#scroll-buttons {
+    position: fixed;
+    top: -50px; /* Hide initially */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%);
+    z-index: 9999;
+}
+
+#scroll-buttons button {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+    margin: 10px;
+    cursor: pointer;
+}
+
+#scroll-buttons button:hover {
+    background-color: #555;
+}
+
+.content {
+    height: 2000px; /* Just for demonstration */
+}
